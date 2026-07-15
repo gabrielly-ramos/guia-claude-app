@@ -73,20 +73,20 @@
     <div class="cmd-card">
       <p class="cmd-phrase">listar projetos</p>
       <p class="cmd-what">Mostra os projetos do Jira que você tem acesso para ver — nome,
-        chave (ex: <code>DEV</code>) e os tipos de tarefa que cada um usa (Bug, História,
+        chave (ex: <code>PROJ</code>) e os tipos de tarefa que cada um usa (Bug, História,
         Épico...).</p>
     </div>
     <div class="cmd-card">
       <p class="cmd-phrase">buscar tarefas com JQL</p>
       <p class="cmd-what">JQL é a "linguagem de busca" do Jira — algo como
-        <code>project = DEV AND status != Done</code>. Você não precisa escrever isso: basta
-        descrever o que quer ("bugs abertos de prioridade alta no projeto de Desenvolvimento")
-        e o Claude monta a consulta.</p>
+        <code>project = PROJ AND status != Done</code>. Você não precisa escrever isso: basta
+        descrever o que quer ("bugs abertos de prioridade alta no projeto X") e o Claude monta
+        a consulta.</p>
     </div>
     <div class="cmd-card">
       <p class="cmd-phrase">ver detalhes de uma tarefa</p>
       <p class="cmd-what">Traz a descrição completa, comentários, responsável e histórico de
-        uma tarefa específica a partir da chave (ex: <code>DEV-1329</code>).</p>
+        uma tarefa específica a partir da chave (ex: <code>PROJ-123</code>).</p>
     </div>
     <div class="cmd-card">
       <p class="cmd-phrase">criar / comentar / mover tarefa</p>
@@ -104,11 +104,11 @@
     e deixar o Claude descobrir o projeto certo e montar a consulta:
   </p>
 
-  <p class="example-label">Exemplo de conversa real</p>
-  <pre class="code-block">Você: "quero um painel com os itens de prioridade alta em aberto do projeto de Desenvolvimento"
+  <p class="example-label">Exemplo de conversa</p>
+  <pre class="code-block">Você: "quero um painel com os itens de prioridade alta em aberto do projeto X"
 
-1. Claude lista os projetos → encontra "Desenvolvimento" (chave DEV)
-2. Claude monta a busca: project = DEV AND statusCategory != Done
+1. Claude lista os projetos → encontra "Projeto X" (chave PROJ)
+2. Claude monta a busca: project = PROJ AND statusCategory != Done
    AND priority in (Highest, High)
 3. Claude traz os resultados: status, tipo, responsável, resumo
 4. Você pede para agrupar por status e por responsável
@@ -198,12 +198,14 @@
 <section class="decision">
   <h2>Veja um exemplo pronto</h2>
   <p>
-    Este projeto tem um POC real: um painel dos itens de prioridade alta em aberto no backlog
-    de Desenvolvimento, montado inteiramente a partir de consultas ao conector do Jira — sem
-    nenhuma exportação manual.
+    Este projeto tem um POC ilustrativo do formato final: um painel de itens de prioridade
+    alta, com <strong>dados fictícios</strong> — mostra só o resultado que o conector do Jira
+    pode gerar a partir de uma pergunta em português, sem citar nenhum projeto ou dado real da
+    empresa. Como este guia é público, um painel com dados reais deve ficar privado ou
+    restrito ao time, nunca linkado aqui.
   </p>
   <ul class="decision-list">
-    <li><a href="https://claude.ai/code/artifact/75a15d0c-07ad-43f6-99ea-4b01c53fcefc">POC — Prioridade Alta no Backlog Dev (conector Jira)</a></li>
+    <li><a href="https://claude.ai/code/artifact/75a15d0c-07ad-43f6-99ea-4b01c53fcefc">POC — Prioridade Alta (exemplo, dados fictícios)</a></li>
   </ul>
 </section>
 
