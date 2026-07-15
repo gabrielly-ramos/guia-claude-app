@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia Claude — Comece por aqui</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <span class="site-nav-brand">Guia Claude</span>
+  <div class="site-nav-links">
+    <a href="index.html" class="active">Comece aqui</a>
+    <a href="cowork.html">Configurar o Cowork</a>
+    <a href="code.html">Configurar o Code</a>
+    <a href="conectores.html">Usar Conectores</a>
+  </div>
+</nav>
+
+<header class="page-header">
+  <p class="eyebrow">Getting Started</p>
+  <h1>Como usar o Claude no dia a dia</h1>
+  <p class="subtitle">
+    Existem três formas principais de trabalhar com o Claude. Cada uma serve para um tipo
+    de tarefa diferente — entender essa diferença é o primeiro passo para usar bem.
+  </p>
+
+  <label class="mode-toggle">
+    <span class="mode-label" data-active="true">Explicação simples</span>
+    <input type="checkbox" id="mode-switch">
+    <span class="switch-track"><span class="switch-thumb"></span></span>
+    <span class="mode-label">Explicação técnica</span>
+  </label>
+</header>
+
+<main class="cards">
+  <article class="card" data-card="chat">
+    <div class="card-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M4 4h16v12H8l-4 4V4z" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <h2>Chat</h2>
+    <p class="tagline">Uma conversa, sem compromisso com arquivos ou projeto.</p>
+
+    <p class="desc simples">
+      É como mandar mensagem para um colega que sabe de tudo um pouco. Você pergunta,
+      pede uma opinião, um resumo, uma ideia — e recebe a resposta ali mesmo, sem nada
+      sendo alterado no seu computador.
+    </p>
+    <p class="desc tecnico">
+      Sessão de conversa isolada, sem acesso a arquivos, terminal ou ferramentas do
+      sistema. O contexto vive só naquela conversa. Ideal para consultas pontuais,
+      revisão de trechos colados, brainstorm e explicações de conceitos.
+    </p>
+
+    <p class="quando-titulo">Quando usar</p>
+    <ul>
+      <li>Tirar uma dúvida rápida</li>
+      <li>Pedir uma segunda opinião sobre uma decisão</li>
+      <li>Revisar ou reescrever um texto</li>
+      <li>Aprender um conceito novo</li>
+    </ul>
+  </article>
+
+  <article class="card" data-card="cowork">
+    <div class="card-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M3 7h18M3 7v12h18V7M3 7l3-4h12l3 4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <h2>Cowork</h2>
+    <p class="tagline">Um assistente que trabalha dentro das suas pastas de verdade.</p>
+
+    <p class="desc simples">
+      Diferente do chat, o Cowork "mora" dentro de uma pasta do seu computador. Ele lê,
+      organiza e cria arquivos — documentos, planilhas, anotações de reunião — e lembra
+      do contexto do projeto entre uma sessão e outra.
+    </p>
+    <p class="desc tecnico">
+      Sessão com acesso ao sistema de arquivos e a integrações (MCP), memória
+      persistente por pasta/projeto e histórico entre sessões. Focado em produtividade
+      geral — não pressupõe que a tarefa envolva escrever código.
+    </p>
+
+    <p class="quando-titulo">Quando usar</p>
+    <ul>
+      <li>Organizar documentação de um projeto</li>
+      <li>Manter contexto entre várias conversas sobre o mesmo assunto</li>
+      <li>Gerar relatórios, atas e planilhas a partir de dados reais</li>
+      <li>Tarefas que não são código, mas precisam de arquivos</li>
+    </ul>
+  </article>
+
+  <article class="card" data-card="code">
+    <div class="card-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M8 6L2 12l6 6M16 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <h2>Code</h2>
+    <p class="tagline">Quem de fato escreve, roda e testa o código.</p>
+
+    <p class="desc simples">
+      É a versão voltada para desenvolvimento de software. Ele escreve código, executa
+      comandos, roda testes e mexe no controle de versão (git) — sempre te mostrando o
+      que está fazendo antes de qualquer coisa mais arriscada.
+    </p>
+    <p class="desc tecnico">
+      CLI com acesso a shell, edição de arquivos, execução de build/testes e integração
+      git. Suporta subagentes, hooks e ferramentas MCP. Pensado para o ciclo real de
+      desenvolvimento: ler código existente, editar, rodar, verificar.
+    </p>
+
+    <p class="quando-titulo">Quando usar</p>
+    <ul>
+      <li>Implementar ou corrigir uma funcionalidade</li>
+      <li>Rodar testes e verificar se algo quebrou</li>
+      <li>Explorar um código que você não escreveu</li>
+      <li>Automatizar tarefas de terminal/git</li>
+    </ul>
+  </article>
+</main>
+
+<section class="decision">
+  <h2>Não sabe qual escolher?</h2>
+  <ul class="decision-list">
+    <li><strong>Só uma pergunta ou ideia, sem precisar de arquivos?</strong> Use o Chat.</li>
+    <li><strong>Precisa organizar arquivos ou manter contexto de um projeto não-técnico?</strong> Use o Cowork.</li>
+    <li><strong>Precisa escrever, rodar ou testar código de verdade?</strong> Use o Code.</li>
+  </ul>
+</section>
+
+<footer class="page-footer">
+  <p>Próximo passo: <a href="cowork.html">aprenda a configurar o Cowork</a> para começar seus projetos do jeito certo.</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

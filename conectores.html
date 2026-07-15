@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Usando Conectores (MCP) — Guia Claude</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <span class="site-nav-brand">Guia Claude</span>
+  <div class="site-nav-links">
+    <a href="index.html">Comece aqui</a>
+    <a href="cowork.html">Configurar o Cowork</a>
+    <a href="code.html">Configurar o Code</a>
+    <a href="conectores.html" class="active">Usar Conectores</a>
+  </div>
+</nav>
+
+<header class="page-header">
+  <p class="eyebrow">Passo a passo</p>
+  <h1>Usando conectores (MCP) para trabalhar com dados reais</h1>
+  <p class="subtitle">
+    Um conector é o que permite ao Claude conversar diretamente com um sistema da empresa —
+    sem você precisar exportar planilha, copiar tela ou descrever o dado manualmente. Aqui
+    usamos o <strong>Jira</strong> como exemplo, porque é um conector de uso geral, sem
+    restrição de acesso. Alguns conectores da empresa são restritos a times específicos
+    (ex: sistemas internos que só o time de dev acessa) — confira com seu time de TI antes de
+    assumir que um conector está liberado para você.
+  </p>
+</header>
+
+<section class="block">
+  <h2><span class="step-num">1</span> O que muda quando existe um conector</h2>
+  <p class="block-intro">
+    Sem conector, o Claude só sabe o que você digitar ou colar na conversa. Com o conector do
+    Jira ativo, ele consegue consultar (e em alguns casos alterar) os projetos e tarefas de
+    verdade — sem você precisar abrir o Jira e copiar cada informação manualmente.
+  </p>
+
+  <div class="rule-grid">
+    <div class="rule">
+      <p class="rule-title">Cada conector expõe um conjunto fixo de ferramentas</p>
+      <p>Não é acesso livre ao sistema — é um contrato específico. O conector do Jira, por
+        exemplo, expõe: listar projetos, buscar tarefas com uma linguagem de consulta própria
+        (JQL), ver o detalhe de uma tarefa, e também criar, comentar ou mover tarefas.</p>
+    </div>
+    <div class="rule">
+      <p class="rule-title">Aqui a escrita existe — e por isso pede confirmação</p>
+      <p>Diferente de um conector de banco de dados (que costuma ser só leitura), o Jira
+        permite criar tarefa, comentar e mudar status. São ações reais e visíveis para o
+        time — o Claude sempre mostra o que vai fazer antes de confirmar.</p>
+    </div>
+    <div class="rule">
+      <p class="rule-title">Ver quais conectores existem: <code>/mcp</code></p>
+      <p>Dentro de uma sessão do Cowork ou do Code, o comando <code>/mcp</code> lista os
+        conectores configurados e se estão autenticados. Se um conector aparecer sem
+        autorização, alguém do time responsável precisa autorizar antes de usar — e alguns
+        conectores permanecerão fora do seu acesso por serem restritos a outro time.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <h2><span class="step-num">2</span> As ferramentas do conector Jira</h2>
+  <p class="block-intro">
+    Não é preciso saber os nomes técnicos — basta pedir em português o que você quer. Mas
+    entender o que cada ferramenta faz ajuda a formular o pedido certo.
+  </p>
+
+  <div class="cmd-grid">
+    <div class="cmd-card">
+      <p class="cmd-phrase">listar projetos</p>
+      <p class="cmd-what">Mostra os projetos do Jira que você tem acesso para ver — nome,
+        chave (ex: <code>DEV</code>) e os tipos de tarefa que cada um usa (Bug, História,
+        Épico...).</p>
+    </div>
+    <div class="cmd-card">
+      <p class="cmd-phrase">buscar tarefas com JQL</p>
+      <p class="cmd-what">JQL é a "linguagem de busca" do Jira — algo como
+        <code>project = DEV AND status != Done</code>. Você não precisa escrever isso: basta
+        descrever o que quer ("bugs abertos de prioridade alta no projeto de Desenvolvimento")
+        e o Claude monta a consulta.</p>
+    </div>
+    <div class="cmd-card">
+      <p class="cmd-phrase">ver detalhes de uma tarefa</p>
+      <p class="cmd-what">Traz a descrição completa, comentários, responsável e histórico de
+        uma tarefa específica a partir da chave (ex: <code>DEV-1329</code>).</p>
+    </div>
+    <div class="cmd-card">
+      <p class="cmd-phrase">criar / comentar / mover tarefa</p>
+      <p class="cmd-what">As únicas ações que <strong>escrevem</strong> no Jira. Sempre
+        aparecem para sua confirmação antes de serem executadas — revise responsável, projeto
+        e texto antes de aprovar.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <h2><span class="step-num">3</span> O fluxo certo: da pergunta ao painel</h2>
+  <p class="block-intro">
+    Você não precisa saber JQL de cor. O caminho confiável é descrever o que quer em português
+    e deixar o Claude descobrir o projeto certo e montar a consulta:
+  </p>
+
+  <p class="example-label">Exemplo de conversa real</p>
+  <pre class="code-block">Você: "quero um painel com os itens de prioridade alta em aberto do projeto de Desenvolvimento"
+
+1. Claude lista os projetos → encontra "Desenvolvimento" (chave DEV)
+2. Claude monta a busca: project = DEV AND statusCategory != Done
+   AND priority in (Highest, High)
+3. Claude traz os resultados: status, tipo, responsável, resumo
+4. Você pede para agrupar por status e por responsável
+5. Você pede para virar um artifact</pre>
+
+  <div class="rule-grid">
+    <div class="rule">
+      <p class="rule-title">Peça para ele explicar antes de agir</p>
+      <p>Para qualquer ação que <strong>escreve</strong> (criar tarefa, comentar, mover
+        status), peça "me mostre o que vai ser criado/alterado antes de confirmar" — o Claude
+        já pausa para isso, mas vale reforçar em ações importantes.</p>
+    </div>
+    <div class="rule">
+      <p class="rule-title">JQL tem operadores próprios</p>
+      <p>Termos como <code>statusCategory</code>, <code>priority in (...)</code> e
+        <code>ORDER BY</code> fazem parte da sintaxe do Jira — você não precisa memorizar,
+        mas ajuda saber que existe essa camada quando for revisar uma consulta.</p>
+    </div>
+    <div class="rule">
+      <p class="rule-title">Dado sensível pede cuidado ao publicar</p>
+      <p>Nome de responsável, prioridade e prazos internos de tarefas são informação de
+        time. Se o resultado for virar um artifact ou relatório compartilhado, confirme com
+        quem pode vê-lo antes de mandar para fora do time.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block practice">
+  <h2><span class="step-num">4</span> Projeto prático — do conector ao artifact (15 min)</h2>
+  <p class="block-intro">
+    A melhor forma de fixar é repetir o fluxo completo uma vez, do zero, numa pergunta sua.
+    Marque cada passo conforme for concluindo.
+  </p>
+
+  <ol class="checklist" id="practice-checklist" data-storage-key="guia-claude-conectores-progress">
+    <li>
+      <label>
+        <input type="checkbox" data-step="1">
+        <span>Rode <code>/mcp</code> e confirme que o conector do Jira aparece autenticado.</span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" data-step="2">
+        <span>Peça: <em>"liste os projetos do Jira que eu tenho acesso"</em> — escolha um que
+          você conhece bem.</span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" data-step="3">
+        <span>Peça: <em>"busque as tarefas abertas desse projeto"</em> — sem se preocupar com
+          a sintaxe, apenas descreva o filtro que quer (status, prioridade, responsável).</span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" data-step="4">
+        <span>Peça: <em>"agrupe esse resultado por status e por responsável"</em> — veja se a
+          distribuição faz sentido com o que você já sabia sobre o time.</span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" data-step="5">
+        <span>Escolha uma tarefa e peça: <em>"me mostre o que você comentaria antes de
+          comentar de verdade"</em> — pratique revisar uma ação de escrita antes de aprovar
+          (não precisa confirmar de verdade, só para praticar o passo de revisão).</span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" data-step="6">
+        <span>Peça: <em>"transforme o painel de tarefas num artifact"</em> — esse é o recurso
+          que fecha o ciclo: dado real do Jira, sem export manual, virando algo apresentável.
+          Antes de compartilhar, confirme se o dado pode ser visto por quem vai receber.</span>
+      </label>
+    </li>
+  </ol>
+
+  <div class="progress-bar">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+  <p class="progress-label" id="progress-label">0 de 6 concluídos</p>
+</section>
+
+<section class="decision">
+  <h2>Veja um exemplo pronto</h2>
+  <p>
+    Este projeto tem um POC real: um painel dos itens de prioridade alta em aberto no backlog
+    de Desenvolvimento, montado inteiramente a partir de consultas ao conector do Jira — sem
+    nenhuma exportação manual.
+  </p>
+  <ul class="decision-list">
+    <li><a href="https://claude.ai/code/artifact/75a15d0c-07ad-43f6-99ea-4b01c53fcefc">POC — Prioridade Alta no Backlog Dev (conector Jira)</a></li>
+  </ul>
+</section>
+
+<footer class="page-footer">
+  <p><a href="index.html">&larr; Voltar para o começo do guia</a> &nbsp;·&nbsp;
+    <a href="cowork.html">Rever: configurar o Cowork</a></p>
+</footer>
+
+<script src="checklist.js"></script>
+
+</body>
+</html>

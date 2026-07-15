@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configurar o Cowork — Guia Claude</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <span class="site-nav-brand">Guia Claude</span>
+  <div class="site-nav-links">
+    <a href="index.html">Comece aqui</a>
+    <a href="cowork.html" class="active">Configurar o Cowork</a>
+    <a href="code.html">Configurar o Code</a>
+    <a href="conectores.html">Usar Conectores</a>
+  </div>
+</nav>
+
+<header class="page-header">
+  <p class="eyebrow">Passo a passo</p>
+  <h1>Configurando o Cowork para começar a trabalhar</h1>
+  <p class="subtitle">
+    Esse é o padrão que o time de TI está adotando para todo mundo usar o Cowork do
+    mesmo jeito — sem depender de como cada um "descobriu sozinho". Se você é
+    iniciante, comece exatamente por aqui.
+  </p>
+</header>
+
+<section class="block">
+  <h2><span class="step-num">1</span> Antes de começar: organize a pasta do projeto</h2>
+  <p class="block-intro">
+    O Cowork trabalha <strong>dentro de uma pasta</strong> do seu computador — ele lê, cria
+    e organiza arquivos ali. Por isso, a primeira regra é: nunca comece a trabalhar
+    "solto", sempre dentro de uma pasta de projeto.
+  </p>
+
+  <div class="rule-grid">
+    <div class="rule">
+      <p class="rule-title">Um projeto contínuo = uma pasta própria</p>
+      <p>Se você vai voltar nesse assunto mais de uma vez (um dashboard, uma
+        documentação, uma consultoria), crie uma subpasta só para ele. Isso mantém o
+        contexto e os arquivos gerados sempre no mesmo lugar.</p>
+    </div>
+    <div class="rule">
+      <p class="rule-title">Pergunta pontual não precisa de pasta</p>
+      <p>Se é uma dúvida rápida ou algo que não vai gerar arquivo nenhum (ex: "o que
+        preciso revisar hoje?"), pode ficar solto — não crie pasta para isso.</p>
+    </div>
+    <div class="rule">
+      <p class="rule-title">Não encaixou em nada existente? Crie uma pasta nova</p>
+      <p>Nunca jogue um arquivo solto na raiz só porque não sabe onde encaixar. Uma
+        subpasta nova e bem nomeada é sempre melhor que bagunça.</p>
+    </div>
+  </div>
+
+  <p class="example-label">Exemplo real usado aqui na empresa</p>
+  <pre class="code-block">meu-workspace/
+├── Dev-SQL/              → projetos técnicos (cada um em sua subpasta)
+├── Documentacao/         → documentação geral, fora de projeto técnico
+├── Reunioes-Briefings/   → pautas e atas
+└── Estudos/              → material de estudo pessoal</pre>
+</section>
+
+<section class="block">
+  <h2><span class="step-num">2</span> Nomeie a sessão certo</h2>
+  <p class="block-intro">
+    Ao abrir uma sessão nova no Cowork, dê um nome claro. Isso é o que permite
+    encontrar a conversa certa depois, em vez de vasculhar uma lista de "Nova
+    conversa", "Nova conversa (2)"...
+  </p>
+  <div class="naming-example">
+    <span class="naming-pattern">[Área] Assunto curto</span>
+    <ul>
+      <li><code>[Sankhya] Discovery inicial</code></li>
+      <li><code>[TCRPRO] Documentação AD</code></li>
+      <li><code>[Reunioes] Pauta GP Empresarial</code></li>
+    </ul>
+  </div>
+</section>
+
+<section class="block">
+  <h2><span class="step-num">3</span> Recursos essenciais que você vai usar sempre</h2>
+  <p class="block-intro">
+    Não precisa decorar sintaxe — no Cowork você pede as coisas em português normal.
+    Aqui estão as frases/comandos que resolvem 90% do dia a dia.
+  </p>
+
+  <div class="cmd-grid">
+    <div class="cmd-card">
+      <p class="cmd-phrase">"crie um artifact com..."</p>
+      <p class="cmd-what">Gera uma página que fica salva e pode ser reaberta e
+        atualizada depois — use para dashboards, status de projeto, checklists.
+        Diferente de uma resposta de chat comum, que "expira".</p>
+    </div>
+    <div class="cmd-card">
+      <p class="cmd-phrase">"lembre disso"</p>
+      <p class="cmd-what">Faz o Cowork guardar uma preferência ou informação para as
+        próximas conversas — não precisa repetir contexto toda vez.</p>
+    </div>
+    <div class="cmd-card">
+      <p class="cmd-phrase">"agende isso para toda [dia/hora]"</p>
+      <p class="cmd-what">Cria uma tarefa recorrente (ex: briefing toda segunda 9h) em
+        vez de você pedir manualmente todo dia.</p>
+    </div>
+    <div class="cmd-card">
+      <p class="cmd-phrase">"/" (barra) no início da mensagem</p>
+      <p class="cmd-what">Abre a lista de atalhos/comandos disponíveis na sua
+        instalação — vale sempre dar uma olhada no que existe.</p>
+    </div>
+    <div class="cmd-card">
+      <p class="cmd-phrase">"resuma o que fizemos até aqui"</p>
+      <p class="cmd-what">Bom hábito antes de encerrar uma sessão longa — confirma que
+        você e o Cowork estão alinhados sobre o que ficou pronto.</p>
+    </div>
+    <div class="cmd-card">
+      <p class="cmd-phrase">"explique antes de fazer"</p>
+      <p class="cmd-what">Para ações mais arriscadas (apagar, sobrescrever, enviar),
+        peça explicação antes — o Cowork já pede confirmação nesses casos, mas você
+        pode reforçar.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block practice">
+  <h2><span class="step-num">4</span> Projeto prático — aprenda fazendo (15 min)</h2>
+  <p class="block-intro">
+    A forma mais rápida de aprender é usando de verdade. Siga os passos abaixo em uma
+    pasta de teste — marque cada um conforme for concluindo.
+  </p>
+
+  <ol class="checklist" id="practice-checklist" data-storage-key="guia-claude-cowork-progress">
+    <li>
+      <label>
+        <input type="checkbox" data-step="1">
+        <span><strong>Crie uma pasta de teste</strong>, por exemplo
+          <code>Teste-Meu-Primeiro-Projeto</code>, em qualquer lugar do seu
+          computador.</span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" data-step="2">
+        <span><strong>Abra o Cowork apontando para essa pasta</strong> e nomeie a
+          sessão <code>[Teste] Meu primeiro projeto</code>.</span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" data-step="3">
+        <span>Peça: <em>"crie um arquivo README.md explicando que essa é uma pasta de
+          teste para eu aprender a usar o Cowork"</em> — veja o arquivo sendo criado de
+          verdade na pasta.</span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" data-step="4">
+        <span>Peça: <em>"lembre que eu prefiro respostas curtas e diretas"</em> — depois
+          faça uma pergunta qualquer e veja se a resposta veio mais direta.</span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" data-step="5">
+        <span>Peça: <em>"crie um artifact com uma checklist dos passos que acabei de
+          fazer"</em> — esse é o mesmo recurso usado para dashboards de verdade.</span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" data-step="6">
+        <span>Peça: <em>"agende uma tarefa para toda sexta às 9h me lembrar de revisar
+          essa pasta"</em> — depois cancele a tarefa (foi só para praticar).</span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" data-step="7">
+        <span>Pronto — você já usou pasta de projeto, nomeação de sessão, criação de
+          arquivo, memória, artifact e tarefa agendada. Pode apagar a pasta de teste ou
+          guardar como referência.</span>
+      </label>
+    </li>
+  </ol>
+
+  <div class="progress-bar">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+  <p class="progress-label" id="progress-label">0 de 7 concluídos</p>
+</section>
+
+<footer class="page-footer">
+  <p><a href="index.html">&larr; Voltar para o começo do guia</a> &nbsp;·&nbsp;
+    <a href="code.html">Próximo: configurar o Code &rarr;</a></p>
+</footer>
+
+<script src="checklist.js"></script>
+
+</body>
+</html>

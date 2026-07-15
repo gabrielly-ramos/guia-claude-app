@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Configurar o Claude Code — Guia Claude</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <span class="site-nav-brand">Guia Claude</span>
+  <div class="site-nav-links">
+    <a href="index.html">Comece aqui</a>
+    <a href="cowork.html">Configurar o Cowork</a>
+    <a href="code.html" class="active">Configurar o Code</a>
+    <a href="conectores.html">Usar Conectores</a>
+  </div>
+</nav>
+
+<header class="page-header">
+  <p class="eyebrow">Passo a passo</p>
+  <h1>Configurando o Claude Code para começar a programar</h1>
+  <p class="subtitle">
+    Esse é o padrão do time de TI para quem vai usar o Claude Code no dia a dia de
+    desenvolvimento. Se você já programa mas está travando na transição para gerar
+    código com IA, comece exatamente por aqui.
+  </p>
+</header>
+
+<section class="block">
+  <h2><span class="step-num">1</span> Antes de começar: prepare o projeto</h2>
+  <p class="block-intro">
+    O Claude Code roda no terminal, dentro da pasta do seu projeto. Ele lê o código,
+    edita arquivos, roda comandos e mexe no git — sempre <strong>dentro daquela
+    pasta</strong>. Por isso a preparação importa mais aqui do que no Chat ou no Cowork.
+  </p>
+
+  <div class="rule-grid">
+    <div class="rule">
+      <p class="rule-title">Sempre dentro de um repositório git</p>
+      <p>O Claude Code funciona melhor com histórico de versão disponível — ele
+        consegue ver diffs, criar commits e você consegue desfazer qualquer coisa que
+        não gostar.</p>
+    </div>
+    <div class="rule">
+      <p class="rule-title">Primeira coisa a rodar: <code>/init</code></p>
+      <p>Gera um arquivo <code>CLAUDE.md</code> na raiz do projeto, documentando
+        automaticamente a estrutura, convenções e comandos do seu código. Ele lê esse
+        arquivo em toda sessão futura.</p>
+    </div>
+    <div class="rule">
+      <p class="rule-title">Leia o diff antes de aceitar</p>
+      <p>Toda edição de código aparece para revisão antes de ser aplicada. Não aceite
+        no automático — é assim que você aprende o que ele está fazendo e pega erros
+        cedo.</p>
+    </div>
+  </div>
+
+  <p class="example-label">Instalar e abrir pela primeira vez</p>
+  <pre class="code-block">npm install -g @anthropic-ai/claude-code
+
+cd caminho/do/seu-projeto
+claude
+
+# dentro da sessão, primeiro comando:
+/init</pre>
+</section>
+
+<section class="block">
+  <h2><span class="step-num">2</span> Entenda como ele pede permissão</h2>
+  <p class="block-intro">
+    Diferente de gerar código num chat comum e colar você mesmo, o Claude Code executa
+    ações de verdade no seu computador. Por segurança, ele para e pergunta antes de
+    qualquer coisa arriscada — isso não é lentidão, é o que te dá controle.
+  </p>
+  <div class="rule-grid">
+    <div class="rule">
+      <p class="rule-title">Ações simples (ler arquivo, rodar teste)</p>
+      <p>Costumam ser autorizadas direto, sem te interromper.</p>
+    </div>
+    <div class="rule">
+      <p class="rule-title">Ações que mudam algo (editar, criar arquivo)</p>
+      <p>Mostram o que vai mudar e pedem seu "sim" antes de aplicar.</p>
+    </div>
+    <div class="rule">
+      <p class="rule-title">Ações arriscadas (git push, deletar, force)</p>
+      <p>Sempre pedem confirmação explícita — e é esperado que você leia com atenção
+        antes de aprovar.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <h2><span class="step-num">3</span> Recursos essenciais que você vai usar sempre</h2>
+  <p class="block-intro">
+    Também dá para pedir a maioria das coisas em português normal — mas esses comandos
+    e frases resolvem o dia a dia mais rápido.
+  </p>
+
+  <div class="cmd-grid">
+    <div class="cmd-card">
+      <p class="cmd-phrase">/init</p>
+      <p class="cmd-what">Gera o <code>CLAUDE.md</code> documentando seu projeto. Rode
+        uma vez em cada repositório novo.</p>
+    </div>
+    <div class="cmd-card">
+      <p class="cmd-phrase">"não edite ainda, só me explique seu plano"</p>
+      <p class="cmd-what">Força uma etapa de planejamento antes de mexer no código —
+        essencial em tarefas maiores ou quando você quer entender a abordagem antes de
+        aprovar.</p>
+    </div>
+    <div class="cmd-card">
+      <p class="cmd-phrase">/clear</p>
+      <p class="cmd-what">Limpa o contexto da conversa ao trocar de assunto — evita que
+        ele misture uma tarefa antiga com a nova.</p>
+    </div>
+    <div class="cmd-card">
+      <p class="cmd-phrase">"rode os testes antes de finalizar"</p>
+      <p class="cmd-what">Pede verificação real (testes, build, lint) em vez de
+        considerar a tarefa pronta só porque o código foi escrito.</p>
+    </div>
+    <div class="cmd-card">
+      <p class="cmd-phrase">"crie um commit dessa mudança"</p>
+      <p class="cmd-what">Ele monta a mensagem e mostra antes de confirmar — revise a
+        mensagem e os arquivos incluídos.</p>
+    </div>
+    <div class="cmd-card">
+      <p class="cmd-phrase">/help</p>
+      <p class="cmd-what">Lista todos os comandos disponíveis na sua instalação —
+        varia um pouco conforme plugins do time.</p>
+    </div>
+  </div>
+</section>
+
+<section class="block practice">
+  <h2><span class="step-num">4</span> Projeto prático — aprenda fazendo (20 min)</h2>
+  <p class="block-intro">
+    Use um projeto pequeno que você já conhece bem — assim você consegue avaliar se as
+    respostas fazem sentido, em vez de confiar às cegas. Marque cada passo conforme for
+    concluindo.
+  </p>
+
+  <ol class="checklist" id="practice-checklist" data-storage-key="guia-claude-code-progress">
+    <li>
+      <label>
+        <input type="checkbox" data-step="1">
+        <span><strong>Abra o terminal num projeto git que você já conhece</strong> e
+          rode <code>claude</code> dentro da pasta.</span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" data-step="2">
+        <span>Rode <code>/init</code> e <strong>leia o CLAUDE.md gerado</strong> —
+          confira se a descrição do projeto bate com o que você sabe.</span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" data-step="3">
+        <span>Peça: <em>"explique como funciona [uma função que você já entende
+          bem]"</em> — compare a explicação dele com o que você já sabe, para calibrar
+          o quanto confiar nele.</span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" data-step="4">
+        <span>Escolha um ajuste pequeno e real (um bug simples ou uma melhoria) e peça:
+          <em>"não edite nada ainda, só me explique seu plano para resolver X"</em> —
+          pratique revisar o plano antes de liberar a edição.</span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" data-step="5">
+        <span>Aprove o plano e deixe ele implementar. <strong>Leia o diff</strong> antes
+          de aceitar — é aqui que você aprende o estilo dele e pega erros cedo.</span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" data-step="6">
+        <span>Peça: <em>"rode os testes"</em> (ou rode você mesmo) para confirmar que
+          nada quebrou.</span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" data-step="7">
+        <span>Peça: <em>"crie um commit dessa mudança"</em> — revise a mensagem antes de
+          confirmar.</span>
+      </label>
+    </li>
+    <li>
+      <label>
+        <input type="checkbox" data-step="8">
+        <span>Pronto — você já praticou preparar o projeto, planejar antes de editar,
+          revisar diff, verificar e commitar. Esse é o ciclo que você vai repetir em
+          toda tarefa real.</span>
+      </label>
+    </li>
+  </ol>
+
+  <div class="progress-bar">
+    <div class="progress-fill" id="progress-fill"></div>
+  </div>
+  <p class="progress-label" id="progress-label">0 de 8 concluídos</p>
+</section>
+
+<footer class="page-footer">
+  <p><a href="index.html">&larr; Voltar para o começo do guia</a> &nbsp;·&nbsp;
+    <a href="cowork.html">Rever: configurar o Cowork</a></p>
+</footer>
+
+<script src="checklist.js"></script>
+
+</body>
+</html>
