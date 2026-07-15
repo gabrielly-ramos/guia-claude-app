@@ -3,7 +3,7 @@
 Guia interno em português sobre como usar o Claude no dia a dia: quando usar Chat, Cowork ou
 Code, como configurar cada um, e como usar conectores (MCP) para trabalhar com dados reais.
 
-🔗 **Site:** publicando...
+🔗 **Site:** https://gabrielly-ramos.github.io/guia-claude-app/
 
 ## Páginas
 
