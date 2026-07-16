@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Usando Conectores (MCP) — Guia Claude</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -12,12 +12,20 @@
   <span class="site-nav-brand">Guia Claude</span>
   <div class="site-nav-links">
     <a href="index.html">Comece aqui</a>
+    <a href="planos.html">Planos</a>
+    <a href="conectores.html" class="active">Usar Conectores</a>
     <a href="cowork.html">Configurar o Cowork</a>
     <a href="code.html">Configurar o Code</a>
-    <a href="conectores.html" class="active">Usar Conectores</a>
-    <a href="planos.html">Planos</a>
   </div>
 </nav>
+
+<div class="plan-switch-bar">
+  <span class="plan-switch-label">Meu plano:</span>
+  <div class="plan-switch-group" role="group" aria-label="Selecionar tipo de conta">
+    <button type="button" class="plan-switch-btn" data-plan="free">Conta Free</button>
+    <button type="button" class="plan-switch-btn active" data-plan="pago">Conta Paga</button>
+  </div>
+</div>
 
 <header class="page-header">
   <div class="header-illustration" aria-hidden="true">
@@ -109,6 +117,57 @@
     Você não precisa saber JQL de cor. O caminho confiável é descrever o que quer em português
     e deixar o Claude descobrir o projeto certo e montar a consulta:
   </p>
+
+  <svg class="flow-diagram" viewBox="0 0 760 150" xmlns="http://www.w3.org/2000/svg" role="img"
+    aria-label="Fluxo: você pergunta em português, o Claude decide o projeto e monta a consulta, o conector do Jira busca os dados reais, e o resultado vira um painel ou artifact">
+    <defs>
+      <marker id="flow-arrow-head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0 0L10 5L0 10z" class="flow-arrowhead"/>
+      </marker>
+    </defs>
+
+    <g>
+      <rect x="10" y="25" width="150" height="100" rx="16"/>
+      <text x="85" y="65" text-anchor="middle" class="flow-title">Você pergunta</text>
+      <text x="85" y="88" text-anchor="middle" class="flow-sub">
+        <tspan x="85" dy="0">em português,</tspan>
+        <tspan x="85" dy="16">sem saber JQL</tspan>
+      </text>
+    </g>
+
+    <path class="flow-arrow" d="M165 75 H205" marker-end="url(#flow-arrow-head)"/>
+
+    <g>
+      <rect x="210" y="25" width="150" height="100" rx="16"/>
+      <text x="285" y="65" text-anchor="middle" class="flow-title">Claude decide</text>
+      <text x="285" y="88" text-anchor="middle" class="flow-sub">
+        <tspan x="285" dy="0">o projeto e monta</tspan>
+        <tspan x="285" dy="16">a consulta (JQL)</tspan>
+      </text>
+    </g>
+
+    <path class="flow-arrow" d="M365 75 H405" marker-end="url(#flow-arrow-head)"/>
+
+    <g>
+      <rect x="410" y="25" width="150" height="100" rx="16"/>
+      <text x="485" y="65" text-anchor="middle" class="flow-title">Conector Jira</text>
+      <text x="485" y="88" text-anchor="middle" class="flow-sub">
+        <tspan x="485" dy="0">busca os dados</tspan>
+        <tspan x="485" dy="16">reais do projeto</tspan>
+      </text>
+    </g>
+
+    <path class="flow-arrow" d="M565 75 H605" marker-end="url(#flow-arrow-head)"/>
+
+    <g>
+      <rect x="610" y="25" width="150" height="100" rx="16"/>
+      <text x="685" y="65" text-anchor="middle" class="flow-title">Vira um painel</text>
+      <text x="685" y="88" text-anchor="middle" class="flow-sub">
+        <tspan x="685" dy="0">artifact pronto</tspan>
+        <tspan x="685" dy="16">pra compartilhar</tspan>
+      </text>
+    </g>
+  </svg>
 
   <p class="example-label">Exemplo de conversa</p>
   <pre class="code-block">Você: "quero um painel com os itens de prioridade alta em aberto do projeto X"
@@ -208,7 +267,8 @@
   </p>
 </footer>
 
-<script src="checklist.js"></script>
+<script src="plan-mode.js?v=2"></script>
+<script src="checklist.js?v=2"></script>
 
 </body>
 </html>

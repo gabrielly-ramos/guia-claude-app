@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>O que dá pra fazer na conta free — Guia Claude</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -12,12 +12,20 @@
   <span class="site-nav-brand">Guia Claude</span>
   <div class="site-nav-links">
     <a href="index.html">Comece aqui</a>
+    <a href="planos.html" class="active">Planos</a>
+    <a href="conectores.html">Usar Conectores</a>
     <a href="cowork.html">Configurar o Cowork</a>
     <a href="code.html">Configurar o Code</a>
-    <a href="conectores.html">Usar Conectores</a>
-    <a href="planos.html" class="active">Planos</a>
   </div>
 </nav>
+
+<div class="plan-switch-bar">
+  <span class="plan-switch-label">Meu plano:</span>
+  <div class="plan-switch-group" role="group" aria-label="Selecionar tipo de conta">
+    <button type="button" class="plan-switch-btn" data-plan="free">Conta Free</button>
+    <button type="button" class="plan-switch-btn active" data-plan="pago">Conta Paga</button>
+  </div>
+</div>
 
 <header class="page-header">
   <div class="header-illustration" aria-hidden="true">
@@ -37,6 +45,11 @@
 
 <section class="plan-grid">
   <article class="plan-card">
+    <div class="card-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M4 4h16v12H8l-4 4V4z" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
     <span class="plan-badge free">Free</span>
     <h2>Chat</h2>
     <p>Funciona na conta gratuita, com um número limitado de mensagens por dia (bem menor
@@ -44,6 +57,11 @@
   </article>
 
   <article class="plan-card">
+    <div class="card-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M3 7h18M3 7v12h18V7M3 7l3-4h12l3 4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
     <span class="plan-badge pago">Plano pago</span>
     <h2>Cowork</h2>
     <p>Não está disponível na conta free — é preciso Pro, Max, Team ou Enterprise. Sem
@@ -51,6 +69,11 @@
   </article>
 
   <article class="plan-card">
+    <div class="card-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M8 6L2 12l6 6M16 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
     <span class="plan-badge pago">Plano pago</span>
     <h2>Claude Code</h2>
     <p>A conta free tem apenas um acesso de teste, limitado e capado — não dá para usar no
@@ -58,6 +81,11 @@
   </article>
 
   <article class="plan-card">
+    <div class="card-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M9 15l6-6M8 12l-2 2a3 3 0 004 4l2-2M16 12l2-2a3 3 0 00-4-4l-2 2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
     <span class="plan-badge free">Free (limitado)</span>
     <h2>Conectores (MCP)</h2>
     <p>A conta free permite <strong>1 conector customizado</strong>. Suporte completo a
@@ -79,6 +107,8 @@
     <a href="cowork.html" class="primary">Configurar o Cowork &rarr;</a>
   </p>
 </footer>
+
+<script src="plan-mode.js?v=2"></script>
 
 </body>
 </html>

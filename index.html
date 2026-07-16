@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Guia Claude — Comece por aqui</title>
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -12,12 +12,20 @@
   <span class="site-nav-brand">Guia Claude</span>
   <div class="site-nav-links">
     <a href="index.html" class="active">Comece aqui</a>
+    <a href="planos.html">Planos</a>
+    <a href="conectores.html">Usar Conectores</a>
     <a href="cowork.html">Configurar o Cowork</a>
     <a href="code.html">Configurar o Code</a>
-    <a href="conectores.html">Usar Conectores</a>
-    <a href="planos.html">Planos</a>
   </div>
 </nav>
+
+<div class="plan-switch-bar">
+  <span class="plan-switch-label">Meu plano:</span>
+  <div class="plan-switch-group" role="group" aria-label="Selecionar tipo de conta">
+    <button type="button" class="plan-switch-btn" data-plan="free">Conta Free</button>
+    <button type="button" class="plan-switch-btn active" data-plan="pago">Conta Paga</button>
+  </div>
+</div>
 
 <header class="page-header">
   <div class="header-illustration" aria-hidden="true">
@@ -147,7 +155,8 @@
   </p>
 </footer>
 
-<script src="script.js"></script>
+<script src="plan-mode.js?v=2"></script>
+<script src="script.js?v=2"></script>
 
 </body>
 </html>
